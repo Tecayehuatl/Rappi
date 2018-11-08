@@ -56,6 +56,5 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new VueLoaderPlugin(),
-        //new HtmlWebpackPlugin({inject: true})
     ]
 }
