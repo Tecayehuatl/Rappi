@@ -27,7 +27,9 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                use: "vue-loader"
+                use: "vue-loader",
+                include: /(clientApp)/
+                
             },
             {
                 test: /\.js$/,
