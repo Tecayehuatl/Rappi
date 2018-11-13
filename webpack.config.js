@@ -22,8 +22,12 @@ module.exports = {
     module:{
         rules: [
             {
-                test: /\.css$/,
-                use: ["vue-style-loader", "css-loader"]
+                test: /\.(s*)css$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
             },
             {
                 test: /\.vue$/,
@@ -36,17 +40,22 @@ module.exports = {
                 use: "babel-loader",
                 include: /(clienApp)/,
                 exclude: /(node_modules)/
+            },
+            { 
+                test: /\.(png|jpg|jpeg|gif|svg)$/, 
+                use: 'url-loader?limit=25000' 
             }
         ]
     },
     resolve: {
-        extensions: ['.js', '.vue'],
+        extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue',
             'components': path.resolve(__dirname, './clientApp/components'),
             'libs': path.resolve(__dirname, './clientApp/js/libs'),
             'router': path.resolve(__dirname, './clientApp/router'),
-            'views': path.resolve(__dirname, './clientApp/views')
+            'views': path.resolve(__dirname, './clientApp/views'),
+            'assets': path.resolve(__dirname, './clientApp/assets')
         }
     },
     devServer: {
@@ -57,6 +66,6 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new VueLoaderPlugin(),
+        new VueLoaderPlugin()
     ]
 }
