@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import routes from './rutas'
+import routes from './rutas' // you can insert in this file the routes array, I decided to include in other file to have specifically all routes
 
 Vue.use(VueRouter)
 
-let router = new VueRouter({
-    mode: 'history',
+const router = new VueRouter({
+    mode: 'history', //avoid to set a hash before to the path /#/
     routes
 })
 

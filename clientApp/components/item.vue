@@ -1,5 +1,5 @@
 <template>
-    <li class="c-products__item o-product-item">
+    <li class="c-products__item">
         <!-- {{item.id}}<br />
         {{item.name}} -->
     </li>

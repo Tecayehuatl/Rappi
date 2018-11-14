@@ -1,11 +1,19 @@
-//import HomePage from 'components/pages/home-page'
-//import HomePage from '/'
-// //import PrequalifierPage from 'components/pages/mortgage/prequalifier'
-// //export default name = "Enrique"
-// export default routes = [
-//     { 
-//         name: 'home',         
-//         path: '/', 
-//         component: HomePage
-//     }
-// ]
+import appRoot from 'views/app-root'
+import item from 'views/item'
+
+let routes = [
+    /*{ 
+        path: '*', 
+        redirect: '/'
+    },*/
+    { 
+        path: '/', 
+        component: appRoot 
+    },
+    { 
+        path: '/views/item', 
+        component: item 
+    }
+]
+
+export default routes

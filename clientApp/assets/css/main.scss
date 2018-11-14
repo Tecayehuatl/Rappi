@@ -14,15 +14,9 @@ body {
 
 .o-main{
     margin-bottom: 3em;
-    display: grid;
-    grid-template-areas: 
-        "banner banner"
-        "menu container"
-        "menu container";
-    grid-template-columns: 300px 1fr;
-
+    
     .o-main__container{
-        grid-area: container;
+        
     }
 }
 
@@ -57,13 +51,9 @@ body {
 }
 
 .o-menu{
+    //display: none;
     grid-area: menu;
-}
-
-.o-product-item{
-    cursor: pointer;
-    margin: 1em;
-    box-shadow: 0px 0px 12px $gris-rata;
+    
 }
 
 .o-footer{
@@ -76,6 +66,7 @@ body {
     }
 }
 
+
 .c-products-title{
     font-size: 2em;
     color: $branding-3;
@@ -85,9 +76,16 @@ body {
 .c-products{
     margin: 0;
     padding: 0;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     .c-products__item{
+        cursor: pointer;
+        box-shadow: 0px 0px 12px $gris-rata;
         list-style: none;
+        height: 150px;
+        margin: 1em;
+        width: 100%;
         word-wrap: break-word;
     }
 }
@@ -98,6 +96,12 @@ body {
     }
 
     .o-main{
+        display: grid;
+        grid-template-areas: 
+            "banner banner"
+            "menu container"
+            "menu container";
+        grid-template-columns: 300px 1fr;
         .o-main__container{            
         }
     }
@@ -110,13 +114,37 @@ body {
         }
     }
 
+    .o-menu{        
+    }
+    
     .c-products{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        
         .c-products__item{
             width: 150px;
-            height: 150px;
+            //height: 150px;
+        }
+    }
+
+    .c-menu-list{
+        margin: 0;
+        padding: 0;
+        color: $gris-rata;
+        .c-menu-list__item{
+            cursor: pointer;
+            padding: 1em;
+            &:hover{
+                background-color: $gris-claro;
+                color: $branding-1;
+            }
+        }        
+    }
+
+    .c-sub-menu-list{
+        .c-sub-menu-list__item{
+            &:hover{
+                background-color: red;
+                color: $branding-1;
+            }   
         }
     }
 }
