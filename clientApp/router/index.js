@@ -5,7 +5,7 @@ import routes from './rutas' // you can insert in this file the routes array, I 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-    mode: 'history', //avoid to set a hash before to the path /#/
+    //mode: 'history', //avoid to set a hash before to the path /#/
     routes
 })
 

@@ -18,10 +18,9 @@
             </ul>
         </aside>
         <article class="o-main__container">
-            <h2 class="c-products-title">
+            <h2 class="o-main__title">
                 Productos
             </h2>
-            
             <ul class="c-products">
                 <buy-item v-for="item in products" :key="item.id" v-bind:item="item"></buy-item>
             </ul>

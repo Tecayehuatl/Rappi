@@ -1,5 +1,43 @@
 @import 'variables.scss';
 
+/* reset */
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+/* /reset */
+
 html, body{
     height: 100%;
 }
@@ -66,8 +104,7 @@ body {
     }
 }
 
-
-.c-products-title{
+.o-main__title{
     font-size: 2em;
     color: $branding-3;
     text-align: center;
@@ -80,13 +117,90 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     .c-products__item{
-        cursor: pointer;
         box-shadow: 0px 0px 12px $gris-rata;
         list-style: none;
-        height: 150px;
+        height: 100px;
         margin: 1em;
+        padding: 1em;
         width: 100%;
         word-wrap: break-word;
+
+        &.c-products__item--no-available{
+            opacity: 0.4;
+        }
+    }
+
+    .c-products__text{
+        color: $gris-luna;
+        &.c-products__text--bold{
+            font-weight: bold;   
+        }
+        &.c-products__text--big{
+            font-size: 1.4em;
+        }
+        &.c-products__text--orange{
+            color: $branding-2;
+        }
+        &.c-products__text--danger{
+            color: $branding-4;
+        }
+        &.c-products__text--green{
+            color: $verde-olivo;
+        }
+    }
+}
+
+.c-detail-item{
+    display: flex;
+    box-shadow: 0px 0px 1em $gris-rata;
+    height: 30vh;
+    margin-bottom: 15em;
+    .c-detail-item__title{
+        font-size: 2em;
+    }
+
+    .c-detail-item__figure{
+
+    }
+
+    .c-detail-item__image{
+
+    }
+
+    .c-detail-item__caption{
+        display: none;
+    }
+}
+
+.c-button{
+    background-color: transparent;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    color: $branding-1;
+    font-size: 1em;
+    padding: 1em;
+    width: 100%;
+    
+    &:hover{
+        background-color: rgba(0,0,0, 0.1);
+    }
+
+    &.c-button--orange{
+        background-color: $branding-1;
+        color: $white;
+        &:hover{
+            background-color: $branding-3;
+        }
+    }
+
+    &.c-button--outline{
+        border: 1px solid $gris-rata;
+    }
+
+    &.c-button--disabled{
+        cursor: not-allowed;
+        opacity: 0.1;
     }
 }
 
@@ -121,7 +235,7 @@ body {
         
         .c-products__item{
             width: 150px;
-            //height: 150px;
+            height: 150px;
         }
     }
 

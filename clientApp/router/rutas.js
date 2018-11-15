@@ -11,8 +11,10 @@ let routes = [
         component: appRoot 
     },
     { 
-        path: '/views/item', 
-        component: item 
+        name: 'viewProductDetail',
+        path: '/views/item/:productId', 
+        component: item ,
+        props: true //this component will accept props as parameter
     }
 ]
 
