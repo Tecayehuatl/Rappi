@@ -1,6 +1,6 @@
-🚀 # Rappi test installation
+## Rappi test installation 🚀
 
-##Prerequisites
+## Prerequisites
 
 1.- You need to have installed 📗 Node.js 8.12.0 or higher and npm 6.4.1 or higher
 
@@ -16,7 +16,7 @@ or
 ``` node --version ```
 
 
-##Installation
+## Installation
 
 Once you has downloaded the repo or clone it, you need to open visual studio and execute the next commands in a terminal:
 
