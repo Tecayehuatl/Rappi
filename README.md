@@ -20,12 +20,12 @@ or
 
 Once you has downloaded the repo or clone it, you need to open visual studio and execute the next commands in a terminal:
 
-1.- 💽 First off we need to download and install some modules dependencies:
+1.- 💽 First off We need to download and install some dependencies modules:
 
 ```npm install```
 
-2.- 👨‍💻 Once we have done the previous command executed, we need to run the project:
+2.- 👨‍💻 Once we have done with the previous command, we need to run the project:
 
 ```npm run build```
 
-These steps will execute the browser showing the project
+These steps will execute the project in the browser showing the Store.
