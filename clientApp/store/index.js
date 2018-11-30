@@ -27,21 +27,25 @@ const state = {
 }
 
 const getters = {
+    cartItems(state){
+        return state.shopingCart;
+    },
     totalShipping: (state) => {
-        //return state.totalShipping + 1;
+        let total = 0;
+        state.shopingCart.forEach((item) => {
+            console.log(item.priceRaw)
+            total += item.priceRaw
+        });
+        return state.totalShipping = total;
     }
 }
 
 const mutations = {
     addProductToShippingCart(state, item){
         state.shopingCart.push(item)
-        console.log(`Se se ejecuto por medio del commit ${state}`)
-        console.log(item)
-        /*console.log(state)*/
     }
 }
-const actions = {
-    
+const actions = {    
 }
 
 export default new Vuex.Store({

@@ -40,10 +40,12 @@
                     </div>
                     <div class="c-panel__body">
                         <div v-if="this.$store.state.shopingCart.length <= 0">Aún no hay artículos en el carrito de compras</div>
-                        <div class="c-panel__list" v-for="item in cartItems" :key="item.id"><span>{{item.name}}</span><span>{{item.price}}</span></div>
+                        <div class="c-panel__list" v-for="item in cartItems""><span>{{item.name}}</span><span>{{item.price}}</span></div>
                         <button class="c-button c-button--orange" v-if="this.$store.state.shopingCart.length > 0" @click="onCheckout">
                         Finalizar compra
-                    </button>             
+                        </button>             
+                        <br>
+                       <p>Total:  {{totalShipping}}</p>
                     </div>
                 </div>
             </div>                     
@@ -52,6 +54,8 @@
 </template>
 <script>
 import headerView from 'views/header'
+import { mapGetters } from 'vuex'
+
 export default {
     props: ['item'],
     data(){
@@ -61,9 +65,10 @@ export default {
         }
     },
     computed:{
-        cartItems(){
-            return this.$store.state.shopingCart;
-        }
+        ...mapGetters({
+            totalShipping: 'totalShipping',
+            cartItems: 'cartItems'
+        })
     },
     methods: {
         addToCart(){
