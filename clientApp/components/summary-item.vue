@@ -14,9 +14,7 @@
                     {{item.available === true ? 'Disponible': 'No disponible'}}
                 </span>
             </p>
-            <!-- <router-link class="c-products__text c-products__text--orange" :to="{path: 'viewItem', params: {productId: item.id}}"> -->
             <router-link class="c-products__text c-products__text--orange" :to="{ name: 'viewProductDetail', params: { productId: item.id, item: item }}">
-                
             ver artículo</router-link>
         </li>    
 </template>
@@ -30,7 +28,6 @@ export default {
     components: {
     },
     mounted(){
-        
     }
 }
 </script>

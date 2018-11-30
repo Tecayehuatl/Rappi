@@ -22,7 +22,7 @@
                 Productos
             </h2>
             <ul class="c-products">
-                <buy-item v-for="item in products" :key="item.id" v-bind:item="item"></buy-item>
+                <summary-item v-for="item in products" :key="item.id" v-bind:item="item"></summary-item>
             </ul>
         </article>        
     </main>
@@ -30,7 +30,7 @@
 <script>
 import productsList from 'assets/json/products'
 import categories from 'assets/json/categories'
-import item from 'components/item'
+import summaryItem from 'components/summary-item'
 
 export default {
     data(){
@@ -40,7 +40,7 @@ export default {
         }
     },
     components: {
-        "buy-item": item,
+        "summary-item": summaryItem,
     },
     methods: {
         orderCatergories(categories){
@@ -70,8 +70,7 @@ export default {
         }
     },
     mounted(){
-        this.orderCatergories(this.categories)
-        
+        //this.orderCatergories(this.categories)
     }
 }
 </script>

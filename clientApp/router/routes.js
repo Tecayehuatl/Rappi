@@ -1,5 +1,5 @@
 import appRoot from 'views/app-root'
-import item from 'views/item'
+import detailedItem from 'views/detailed-item'
 
 let routes = [
     /*{ 
@@ -12,8 +12,8 @@ let routes = [
     },
     { 
         name: 'viewProductDetail',
-        path: '/views/item/:productId', 
-        component: item ,
+        path: '/views/detailed-item/:productId', 
+        component: detailedItem ,
         props: true //this component will accept props as parameter
     }
 ]
