@@ -45,7 +45,7 @@
                         Finalizar compra
                         </button>             
                         <br>
-                       <p>Total:  {{totalShipping}}</p>
+                       <p>Total:  {{totalShipping | currency}}</p>
                     </div>
                 </div>
             </div>                     
