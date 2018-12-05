@@ -1,8 +1,22 @@
 <template>
      <main class="o-main">
-        <header-view></header-view>
+        <header-view></header-view>        
         <aside class="o-menu">
             <ul class="c-menu-list">
+                <div class="c-panel">
+                    <div class="c-panel__title">
+                        Lista del carrito de compras
+                    </div>
+                    <div class="c-panel__body">
+                        <div v-if="cartItems.length <= 0">Aún no hay artículos en el carrito de compras</div>
+                        <div class="c-panel__list" v-for="item in cartItems"><span>{{item.name}}</span><span>{{item.price}}</span></div>
+                        <button class="c-button c-button--orange" v-if="cartItems.length > 0" @click="onFinishOrder">
+                        Finalizar compra
+                        </button>             
+                        <br>
+                        <p>Total:  {{totalOrderAmount | currency}}</p>
+                    </div>
+                </div>
                 <!-- <li class="c-menu-list__item" v-for="category in categories" :key="category.id">
                     {{category.name}} 
                     <ul class="c-sub-menu-list">
@@ -15,24 +29,37 @@
         <article class="o-main__container">
             <h2 class="o-main__title">
                 Productos
-            </h2>
-            <ul class="c-products">
+            </h2>  
+            <p class="o-main__loading" v-if="!isLoaded">
+                <img  src="../assets/img/spin.gif" alt="loading"/>
+            </p>          
+            <ul v-else class="c-products">
                 <summary-item v-for="item in products" :key="item.id" v-bind:item="item"></summary-item>
             </ul>
         </article>        
     </main>
 </template>
 <script>
-import productsList from 'assets/json/products'
-import categories from 'assets/json/categories'
 import summaryItem from 'components/summary-item'
 import headerView from 'views/header'
+import api from '../../api/data/index'
+import { mapGetters } from 'vuex'
 
 export default {
     data(){
         return {
-            products: productsList.products,
-            categories: categories.categories
+        }
+    },
+    computed:{
+        ...mapGetters({
+            totalOrderAmount: 'totalOrderAmount',
+            cartItems: 'cartItems'
+        }),
+        products(){
+            return this.$store.state.allProducts;
+        },
+        isLoaded(){
+            return this.$store.state.isLoaded;
         }
     },
     components: {
@@ -40,34 +67,13 @@ export default {
         "header-view": headerView
     },
     methods: {
-        orderCatergories(categories){
-            let categoriesList = []
-            let categoriesListLevel2 = []
-            let categoriesListLevel3 = []
-
-            categories.map(function(object, index){
-                console.log(object.name)
-
-                //console.log(object.sublevels)
-                // while(object.sublevels.length >= 1){
-                //     console.log(object.name)
-                // }
-                //condicional de que si tiene mas de un item y es subivels entra
-
-                //orderCatergories
-                //console.log(object.sublevels.length)
-                // if(object.sublevels.length >= 1){
-                //     console.log(`SUBLEVEL DETECTED in ${index}`)
-                // }
-            })
+        onFinishOrder(){
+            this.$store.commit('onFinishOrder')
+            alert('Compra realizada')
         },
-        createNewSubCategory(subCategoriesArray){
-            let newCategories = []
-            subCategoriesArray.map()
-        }
     },
     mounted(){
-        //this.orderCatergories(this.categories)
+        this.$store.dispatch('fetchProducts')
     }
 }
 </script>

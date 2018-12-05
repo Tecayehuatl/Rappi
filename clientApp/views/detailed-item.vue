@@ -39,13 +39,13 @@
                         Lista del carrito de compras
                     </div>
                     <div class="c-panel__body">
-                        <div v-if="this.$store.state.shopingCart.length <= 0">Aún no hay artículos en el carrito de compras</div>
-                        <div class="c-panel__list" v-for="item in cartItems""><span>{{item.name}}</span><span>{{item.price}}</span></div>
-                        <button class="c-button c-button--orange" v-if="this.$store.state.shopingCart.length > 0" @click="onCheckout">
+                        <div v-if="cartItems.length <= 0">Aún no hay artículos en el carrito de compras</div>
+                        <div class="c-panel__list" v-for="item in cartItems"><span>{{item.name}}</span><span>{{item.price}}</span></div>
+                        <button class="c-button c-button--orange" v-if="cartItems.length > 0" @click="onFinishOrder">
                         Finalizar compra
                         </button>             
                         <br>
-                       <p>Total:  {{totalShipping | currency}}</p>
+                        <p>Total:  {{totalOrderAmount | currency}}</p>
                     </div>
                 </div>
             </div>                     
@@ -66,11 +66,17 @@ export default {
     },
     computed:{
         ...mapGetters({
-            totalShipping: 'totalShipping',
+            totalOrderAmount: 'totalOrderAmount',
             cartItems: 'cartItems'
         })
     },
     methods: {
+        onFinishOrder(){
+            this.$store.commit('onFinishOrder')
+            alert('Compra realizada')
+            this.goHome();
+            //localStorage.clear()
+        },
         addToCart(){
             this.$store.commit('addProductToShippingCart', Object.assign({}, this.item, {'priceRaw': this.priceRaw}));
             this.itemAddedToShopingCart = true;
@@ -86,15 +92,11 @@ export default {
                 console.log(e)
                 return 0;
             }
-        },
-        onCheckout(){
-            console.log('COMPRAR_')
         }
     },
     components: {
         "header-view": headerView
     },
-    mounted(){
-    }
+    mounted(){}
 }
 </script>

@@ -56,6 +56,10 @@ body {
     .o-main__container{
         
     }
+    
+    .o-main__loading{
+        text-align: center;
+    }
 }
 
 .o-banner{
@@ -89,7 +93,6 @@ body {
 }
 
 .o-menu{
-    //display: none;
     grid-area: menu;
     
 }
@@ -274,8 +277,8 @@ body {
             "menu container"
             "menu container";
         grid-template-columns: 300px 1fr;
-        .o-main__container{            
-        }
+        .o-main__container{
+        }        
     }
 
     .o-banner{
@@ -290,7 +293,6 @@ body {
     }
     
     .c-products{
-        
         .c-products__item{
             width: 150px;
             height: 150px;

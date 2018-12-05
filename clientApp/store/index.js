@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import products from 'assets/json/products'
+import api from '../../api/data/index'
 
 Vue.use(Vuex)
 
@@ -13,39 +13,56 @@ Vue.use(Vuex)
  */
 
 /**
- * context =>
- * dispatch
+ * context => {dispatch, commit}
  * getters
- * commit
  * state
  * ...
  */
 
 const state = {
     shopingCart : [],
-    totalShipping: 0
+    allProducts: [],
+    isLoaded: false
 }
 
 const getters = {
     cartItems(state){
         return state.shopingCart;
     },
-    totalShipping: (state) => {
+    totalOrderAmount: (state) => {
         let total = 0;
         state.shopingCart.forEach((item) => {
-            console.log(item.priceRaw)
             total += item.priceRaw
         });
-        return state.totalShipping = total;
+        return total;
     }
 }
 
 const mutations = {
     addProductToShippingCart(state, item){
         state.shopingCart.push(item)
+        localStorage.setItem('cart', JSON.stringify(state.shopingCart))
+    },
+    onFinishOrder(state){    
+        let total = 0;
+        state.shopingCart.forEach(function(item){
+            total += item.priceRaw;
+        })
+    },
+    setProducts(state, products){
+        state.allProducts = products;
+    },
+    setProducts(state, products){
+        state.allProducts = products;
+        state.isLoaded = true
     }
 }
 const actions = {    
+    fetchProducts({commit}, products){
+        api.getProducts(products => {
+            commit('setProducts', products)
+        })
+    }
 }
 
 export default new Vuex.Store({
