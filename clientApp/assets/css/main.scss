@@ -93,8 +93,8 @@ body {
 }
 
 .o-menu{
+    padding: 1em;
     grid-area: menu;
-    
 }
 
 .o-footer{
@@ -263,6 +263,11 @@ body {
             background-color: $gris-claro;
         }
     }
+}
+
+.c-menu-list{
+    list-style: none;
+    padding: 0;
 }
 
 @media screen and(min-width: 768px){
