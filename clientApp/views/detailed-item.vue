@@ -3,7 +3,7 @@
         <header-view></header-view>
         <div class="c-detail-item">        
             <div class="c-detail-1">
-                <div>
+                <div class="c-detail-1__image">
                     <figure class="c-detail-item__figure">
                     <img class="c-detail-item__image" src="https://via.placeholder.com/150C/O https://placeholder.com/ " alt="">
                     <figcaption class="c-detail-item__caption">Fig.1 - Trulli, Puglia, Italy.</figcaption>
@@ -31,6 +31,8 @@
                     <br>
                     <br>
                     <button class="c-button c-button--outline" @click="goHome">Ir al inicio</button>
+                    <br>
+                    <br>
                 </div>
             </div>
             <div class="c-detail-2">
