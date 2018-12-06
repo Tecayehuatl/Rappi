@@ -35,7 +35,7 @@
             </p>          
             <ul v-else class="c-products">
                 <summary-item v-for="item in products" :key="item.id" v-bind:item="item"></summary-item>
-            </ul>
+            </ul>            
         </article>        
     </main>
 </template>
@@ -68,12 +68,14 @@ export default {
     },
     methods: {
         onFinishOrder(){
-            this.$store.commit('onFinishOrder')
-            alert('Compra realizada')
+            this.$store.commit('onFinishOrder')            
         },
     },
     mounted(){
         this.$store.dispatch('fetchProducts')
+        if(window.localStorage.cart) 
+            this.$store.commit('setProductsFromLocalStorageToShoppingCart', localStorage.cart)
+        
     }
 }
 </script>

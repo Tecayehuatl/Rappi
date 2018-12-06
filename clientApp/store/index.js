@@ -22,7 +22,8 @@ Vue.use(Vuex)
 const state = {
     shopingCart : [],
     allProducts: [],
-    isLoaded: false
+    isLoaded: false,
+    showModal: false
 }
 
 const getters = {
@@ -43,18 +44,24 @@ const mutations = {
         state.shopingCart.push(item)
         localStorage.setItem('cart', JSON.stringify(state.shopingCart))
     },
-    onFinishOrder(state){    
-        let total = 0;
-        state.shopingCart.forEach(function(item){
-            total += item.priceRaw;
-        })
-    },
-    setProducts(state, products){
-        state.allProducts = products;
+    onFinishOrder(state, isShownModal = true){    
+        state.showModal = isShownModal        
     },
     setProducts(state, products){
         state.allProducts = products;
         state.isLoaded = true
+    },
+    setProductsFromLocalStorageToShoppingCart(state, productsFromLocalStorage){
+        let parsedProducts = JSON.parse(productsFromLocalStorage)
+        state.shopingCart = parsedProducts;
+        
+    },
+    removeLocalStorageData(){
+        localStorage.removeItem('cart')
+        state.shopingCart = []
+    },
+    hideModal(state, isShownModal = false){
+        state.showModal = isShownModal
     }
 }
 const actions = {    

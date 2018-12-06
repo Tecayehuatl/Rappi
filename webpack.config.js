@@ -55,6 +55,7 @@ module.exports = {
             'libs': path.resolve(__dirname, './clientApp/js/libs'),
             'router': path.resolve(__dirname, './clientApp/router'),
             'store': path.resolve(__dirname, './clientApp/store'),
+            'modals': path.resolve(__dirname, './clientApp/modals'),
             'views': path.resolve(__dirname, './clientApp/views'),
             'assets': path.resolve(__dirname, './clientApp/assets')
         }

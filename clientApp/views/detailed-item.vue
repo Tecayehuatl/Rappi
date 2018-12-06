@@ -72,10 +72,8 @@ export default {
     },
     methods: {
         onFinishOrder(){
-            this.$store.commit('onFinishOrder')
-            alert('Compra realizada')
-            this.goHome();
-            //localStorage.clear()
+            this.$store.commit('onFinishOrder')            
+            this.goHome();            
         },
         addToCart(){
             this.$store.commit('addProductToShippingCart', Object.assign({}, this.item, {'priceRaw': this.priceRaw}));

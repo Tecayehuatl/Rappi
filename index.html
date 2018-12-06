@@ -7,8 +7,7 @@
     <title>El Baratón Store</title>
 </head>
 <body>
-    <div id="app">
-        
+    <div id="app">        
         <router-view>
             <app-root></app-root>
         </router-view>
@@ -17,6 +16,9 @@
             <p><a class="o-footer__link" href="https://github.com/tecayehuatl" target="_blank">Github</a></p>    
             <p><a class="o-footer__link" href="https://linkedin.com/in/enriquetecayehuatl" target="_blank">Linkedin</a></p>
         </footer>
+        <modal v-if="showModal">                    
+            <h3 slot="header">Baraton Store agradece su compra!</h3>
+        </modal>
     </div>
     <script src="dist/main.js"></script>
     <script>
