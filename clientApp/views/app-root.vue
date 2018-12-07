@@ -1,5 +1,5 @@
 <template>
-     <main class="o-main">
+     <main class="o-main">         
         <header-view></header-view>        
         <aside class="o-menu">
             <ul class="c-menu-list">
@@ -34,7 +34,7 @@
                 <img  src="../assets/img/spin.gif" alt="loading"/>
             </p>          
             <ul v-else class="c-products">
-                <summary-item v-for="item in products" :key="item.id" v-bind:item="item"></summary-item>
+                <summary-item v-for="item in filteredProducts" :key="item.id" v-bind:item="item"></summary-item>
             </ul>            
         </article>        
     </main>
@@ -46,10 +46,6 @@ import api from '../../api/data/index'
 import { mapGetters } from 'vuex'
 
 export default {
-    data(){
-        return {
-        }
-    },
     computed:{
         ...mapGetters({
             totalOrderAmount: 'totalOrderAmount',
@@ -60,6 +56,10 @@ export default {
         },
         isLoaded(){
             return this.$store.state.isLoaded;
+        },
+        filteredProducts(){
+            return this.products.filter(
+                (product) => product.name.match(this.$store.state.searchText))
         }
     },
     components: {
@@ -75,7 +75,6 @@ export default {
         this.$store.dispatch('fetchProducts')
         if(window.localStorage.cart) 
             this.$store.commit('setProductsFromLocalStorageToShoppingCart', localStorage.cart)
-        
     }
 }
 </script>

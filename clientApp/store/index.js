@@ -23,7 +23,8 @@ const state = {
     shopingCart : [],
     allProducts: [],
     isLoaded: false,
-    showModal: false
+    showModal: false,
+    searchText: ''
 }
 
 const getters = {
@@ -62,6 +63,9 @@ const mutations = {
     },
     hideModal(state, isShownModal = false){
         state.showModal = isShownModal
+    },
+    setNewSearchText(state, value){
+        state.searchText = value
     }
 }
 const actions = {    

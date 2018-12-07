@@ -79,6 +79,18 @@ body {
         z-index: 2;
     }
 
+    .o-banner__search{
+        position: absolute;
+        color: $branding-1;
+        z-index: 3;
+        right: 1em;
+        top: 1em;
+        width: 250px;
+        height: 1em;
+        padding: .5em;
+        border-radius: 4px;
+    }
+
     &:after{
         content: "";
         position: absolute;
