@@ -27,6 +27,15 @@
             </ul>
         </aside>
         <article class="o-main__container">
+            <div class="c-panel c-panel--sort">
+                <div class="c-panel__title">
+                    Ordenar productos por:
+                    <select @change="onChangeSortOrder()" v-model="sortSelected">
+                          <option disabled value="">Ordenar por...</option>
+                        <option v-for="option in sortOptions" :value="option.value">{{option.text}}</option>
+                    </select>
+                </div>
+            </div>   
             <h2 class="o-main__title">
                 Productos
             </h2>  
@@ -46,6 +55,16 @@ import api from '../../api/data/index'
 import { mapGetters } from 'vuex'
 
 export default {
+    data(){
+        return {
+            sortSelected: '',
+            sortOptions: [
+                { text: 'Disponibilidad', value: 'availability'},
+                { text: 'Precio', value: 'price'},
+                { text: 'Stock', value: 'stock'},
+            ]
+        }
+    },
     computed:{
         ...mapGetters({
             totalOrderAmount: 'totalOrderAmount',
@@ -70,6 +89,18 @@ export default {
         onFinishOrder(){
             this.$store.commit('onFinishOrder')            
         },
+        onChangeSortOrder(){
+            
+            if(this.sortSelected === 'availability'){                
+                this.$store.state.allProducts = this.filteredProducts.filter((item) => item.available === true)
+            }
+            // else if(this.sortSelected === 'price'){
+            //     //this.$store.state.allProducts = this.filteredProducts.filter((item) => item.pr === true)                
+            // }
+            else if(this.sortSelected === 'stock'){
+                this.$store.state.allProducts = this.filteredProducts.sort(function(a, b){ return b.quantity - a.quantity})               
+            }
+        }
     },
     mounted(){
         this.$store.dispatch('fetchProducts')

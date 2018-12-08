@@ -9,6 +9,10 @@
                 <span class="c-products__text c-products__text--bold c-products__text--orange c-products__text--big">{{item.price}}</span>
             </p>
             <p class="c-products__text">
+                <span class="c-products__text">En stock: </span>
+                <span class="c-products__text c-products__text--bold c-products__text--orange c-products__text--big">{{item.quantity}}</span>
+            </p>
+            <p class="c-products__text">
                 
                 <span class="c-products__text c-products__text--bold" :class="item.available === true ? 'c-products__text--green': 'c-products__text--danger'">
                     {{item.available === true ? 'Disponible': 'No disponible'}}
