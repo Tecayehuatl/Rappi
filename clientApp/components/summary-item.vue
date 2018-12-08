@@ -25,10 +25,6 @@
 <script>
 export default {
     props: ['item'],
-    data(){
-        return{
-        }
-    },
     components: {
     },
     mounted(){

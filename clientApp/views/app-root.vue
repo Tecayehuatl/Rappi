@@ -60,8 +60,7 @@ export default {
             sortSelected: '',
             sortOptions: [
                 { text: 'Disponibilidad', value: 'availability'},
-                { text: 'Precio', value: 'price'},
-                { text: 'Stock', value: 'stock'},
+                { text: 'Stock', value: 'stock'}
             ]
         }
     },
@@ -77,8 +76,7 @@ export default {
             return this.$store.state.isLoaded;
         },
         filteredProducts(){
-            return this.products.filter(
-                (product) => product.name.match(this.$store.state.searchText))
+            return this.products.filter((product) => product.name.match(this.$store.state.searchText))
         }
     },
     components: {
@@ -94,11 +92,8 @@ export default {
             if(this.sortSelected === 'availability'){                
                 this.$store.state.allProducts = this.filteredProducts.filter((item) => item.available === true)
             }
-            // else if(this.sortSelected === 'price'){
-            //     //this.$store.state.allProducts = this.filteredProducts.filter((item) => item.pr === true)                
-            // }
             else if(this.sortSelected === 'stock'){
-                this.$store.state.allProducts = this.filteredProducts.sort(function(a, b){ return b.quantity - a.quantity})               
+                this.$store.state.allProducts = this.filteredProducts.sort((a, b) => b.quantity - a.quantity)               
             }
         }
     },
