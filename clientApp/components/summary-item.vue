@@ -5,10 +5,12 @@
                 <span class="c-products__text c-products__text--bold">{{item.name}}</span>
             </p>
             <p class="c-products__text">
-                <span class="c-products__text">Precio: </span>
+                <span class="c-products__text">
+                 <span class="bs bs-coin-dollar"></span> Precio: </span>
                 <span class="c-products__text c-products__text--bold c-products__text--orange c-products__text--big">{{item.price}}</span>
             </p>
             <p class="c-products__text">
+                <span class="bs bs-pushpin"></span>
                 <span class="c-products__text">En stock: </span>
                 <span class="c-products__text c-products__text--bold c-products__text--orange c-products__text--big">{{item.quantity}}</span>
             </p>

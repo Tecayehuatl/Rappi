@@ -5,13 +5,13 @@
             <ul class="c-menu-list">
                 <div class="c-panel">
                     <div class="c-panel__title">
-                        Lista del carrito de compras
+                        Lista del carrito de compras <span class="bs bs-cart"></span>
                     </div>
                     <div class="c-panel__body">
                         <div v-if="cartItems.length <= 0">Aún no hay artículos en el carrito de compras</div>
                         <div class="c-panel__list" v-for="item in cartItems"><span>{{item.name}}</span><span>{{item.price}}</span></div>
                         <button class="c-button c-button--orange" v-if="cartItems.length > 0" @click="onFinishOrder">
-                        Finalizar compra
+                        <span class="bs bs-cart"></span> Finalizar compra
                         </button>             
                         <br>
                         <p>Total:  {{totalOrderAmount | currency}}</p>
@@ -37,7 +37,7 @@
                 </div>
             </div>   
             <h2 class="o-main__title">
-                Productos
+                Productos <span class="bs bs-price-tags"></span>
             </h2>  
             <p class="o-main__loading" v-if="!isLoaded">
                 <img  src="../assets/img/spin.gif" alt="loading"/>

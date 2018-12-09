@@ -1,3 +1,4 @@
+@import url(/Users/teca/Documents/Proyectos/Rappi/clientApp/assets/css/icons.css);
 /* reset */
 input,
 button,
@@ -52,6 +53,10 @@ body {
   margin-bottom: 3em;
 }
 
+.o-main .o-main__container {
+  padding: 1em;
+}
+
 .o-main .o-main__loading {
   text-align: center;
 }
@@ -78,12 +83,14 @@ body {
   position: absolute;
   color: #f33959;
   z-index: 3;
-  right: 1em;
-  top: 1em;
-  width: 250px;
+  right: 50%;
+  top: 2em;
+  width: 80%;
   height: 1em;
   padding: .5em;
   border-radius: 4px;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
 }
 
 .o-banner:after {
@@ -131,8 +138,9 @@ body {
 .c-products .c-products__item {
   -webkit-box-shadow: 0px 0px 12px #b6b3b3;
           box-shadow: 0px 0px 12px #b6b3b3;
+  border-radius: 4px;
   list-style: none;
-  height: 100px;
+  height: 140px;
   margin: 1em;
   padding: 1em;
   width: 100%;
@@ -279,6 +287,15 @@ body {
   background-color: #f1f1f1;
 }
 
+.c-panel.c-panel--sort {
+  border: 1px solid #f33959;
+}
+
+.c-panel.c-panel--sort .c-panel__title {
+  background-color: #ffffff;
+  color: #f65d78;
+}
+
 .c-menu-list {
   list-style: none;
   padding: 0;
@@ -366,6 +383,14 @@ body {
   }
   .o-banner .o-banner__title {
     font-size: 3.5em;
+  }
+  .o-banner .o-banner__search {
+    right: 1em;
+    top: 1em;
+    width: 250px;
+    border-radius: 4px;
+    -webkit-transform: initial;
+            transform: initial;
   }
   .c-products .c-products__item {
     width: 150px;

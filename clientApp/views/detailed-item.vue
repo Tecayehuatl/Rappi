@@ -11,14 +11,14 @@
                 </div>           
                 <div>
                     <h1 class="c-detail-item__title">
-                    Artículo: {{ item.name }}
+                    <span class="bs bs-price-tags"></span> Artículo: {{ item.name }}
                     </h1>
                     <p class="c-detail-item__text">
-                        <span>Precio: </span>
+                        <span class="bs bs-coin-dollar"></span> <span>Precio: </span>
                         <span class="c-detail-item__text c-detail-item__text--bold">{{item.price}}</span>
                     </p>
                     <p class="c-detail-item__text">
-                        <span>Solo quedan en stock: </span>
+                        <span class="bs bs-pushpin"></span> <span>Solo quedan en stock: </span>
                         <span class="c-detail-item__text c-detail-item__text--bold">{{item.quantity}}</span>
                     </p>
                     <p class="c-detail-item__added" :class="itemAddedToShopingCart ? 'c-detail-item__added--shown': ''">
@@ -26,11 +26,11 @@
                     </p>
                     <button class="c-button c-button--orange" @click="addToCart" :class="item.available === true ? '' : 'c-button--disabled'"
                     :disabled="item.available === false">
-                        Agregar al carrito
+                        <span class="bs bs-plus"></span> Agregar al carrito
                     </button>                
                     <br>
                     <br>
-                    <button class="c-button c-button--outline" @click="goHome">Ir al inicio</button>
+                    <button class="c-button c-button--outline" @click="goHome"><span class="bs bs-home"></span> Ir al inicio</button>
                     <br>
                     <br>
                 </div>
@@ -38,13 +38,13 @@
             <div class="c-detail-2">
                 <div class="c-panel">
                     <div class="c-panel__title">
-                        Lista del carrito de compras
+                        Lista del carrito de compras <span class="bs bs-cart"></span>
                     </div>
                     <div class="c-panel__body">
                         <div v-if="cartItems.length <= 0">Aún no hay artículos en el carrito de compras</div>
                         <div class="c-panel__list" v-for="item in cartItems"><span>{{item.name}}</span><span>{{item.price}}</span></div>
                         <button class="c-button c-button--orange" v-if="cartItems.length > 0" @click="onFinishOrder">
-                        Finalizar compra
+                        <span class="bs bs-cart"></span> Finalizar compra
                         </button>             
                         <br>
                         <p>Total:  {{totalOrderAmount | currency}}</p>
